@@ -26,6 +26,13 @@ resource google_container_node_pool "custom_node_pool" {
   location = var.region
 
   node_config {
+    shielded_instance_config {
+      enable_secure_boot = true
+    }
     image_type = "Ubuntu"
+  }
+  management {
+    auto_repair = true
+    auto_upgrade = true
   }
 }
